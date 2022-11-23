@@ -1,35 +1,32 @@
 package linkedList;
 
 public class LinkedList {
-	Node head;//head of Linked_list.
-	// ____________
-	//|_head_|null_| initially head 
-	
-	//Create a Linked List based on 3 nodes
-	public static void createLinkedList() {
+	static Node head;// head of Linked_list.
+	public void addData(int data) {
 		
-		Node firstNode = new Node(56);//first node.
-		Node secondNode = new Node(30);
-		Node thirdNode = new Node(70);
+		//Node With data created.
+		Node firstNode = new Node(70);
 		
-		//assign head as firstNode.
-		//  _________________
-		// |___56__|__next___|--->next have the address of next node.
-		Node head = firstNode;
-		firstNode.next = secondNode;
-		secondNode.next = thirdNode;
+		//Add elements to the linked list at first position.
+		Node newNode = new Node(data);
+		firstNode = head;
+		newNode.next = firstNode;
+		head = newNode;
 		
 		Node temp = head;
 		while(temp != null) {
-			System.out.println("\t"+temp.data);
+			System.out.println(temp.data);
 			temp = temp.next;
 		}
-	}
-	
-	public static void main(String[] args) {
 		
-		LinkedList linkedList = new  LinkedList();
+	}
+
+	public static void main(String[] args) {
+
+		LinkedList linkedList = new LinkedList();
 		System.out.println("Welcome to Data Structures");
-		linkedList.createLinkedList();
+		linkedList.addData(70);
+		linkedList.addData(30);
+		linkedList.addData(56);
 	}
 }
